@@ -1,8 +1,12 @@
 require 'spec_helper'
 describe HacklabDecorator::Decoratable do
 
-  it '#ok?' do
-    expect(create_project.ok?).to eq 'It works fine!'
+  subject { create_project }
+
+  describe '#decorate' do
+    it 'default' do
+      expect(subject.decorate).to be_a(ProjectDecorator)
+    end
   end
 
 end

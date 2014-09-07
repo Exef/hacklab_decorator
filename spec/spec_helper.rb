@@ -10,6 +10,7 @@ ActiveRecord::Base.logger = Logger.new(File.join(File.dirname(__FILE__), "../log
 ActiveRecord::Base.send(:include, HacklabDecorator::Decoratable)
 
 require 'support/models'
+require 'support/decorators'
 
 RSpec.configure do |config|
   config.include ModelMacros
@@ -27,6 +28,3 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 end
-
-
-
