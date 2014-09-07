@@ -1,10 +1,10 @@
-class ProjectDecorator
+class ProjectDecorator < HacklabDecorator::Decorator
 
 end
 
-class MyProjectDecorator
+class MyProjectDecorator < HacklabDecorator::Decorator
 
 end
 
-class ProductDecorator
+class ProductDecorator < HacklabDecorator::Decorator
 end

@@ -4,9 +4,7 @@ module HacklabDecorator
 
     def decorate(options = {})
       klass = options.fetch(:with) { "#{self.class.name}Decorator".constantize }
-      decorator = klass.new
-
-      decorator
+      klass.new(self)
     end
 
   end
