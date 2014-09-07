@@ -1,6 +1,10 @@
 module HacklabDecorator
 
   class Railtie < Rails::Railtie
+    config.after_initialize do |app|
+      app.config.add 'app/decorators', eager_load: true
+    end
+
     initializer "hacklab_decorator.setup_orm" do |app|
       ActiveSupport.on_load :active_record do
         HacklabDecorator.setup_orm self
