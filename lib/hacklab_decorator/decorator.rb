@@ -1,5 +1,4 @@
 module HacklabDecorator
-
   class Decorator
 
     attr_accessor :object
@@ -9,17 +8,18 @@ module HacklabDecorator
     end
 
     def self.delegate_all
-      class_eval do
-        def method_missing(meth, *args, &block)
-          if object.respond_to? meth
-            object.send meth, *args, &block
-          else
-            super
-          end
+      define_method :method_missing do | meth, *args, &block |
+        if object.respond_to? meth
+          object.send meth, *args, &block
+        else
+          super meth, *args, &block
         end
       end
     end
 
-  end
+    def h
+      RequestStore[:current_controller].view_context
+    end
 
+  end
 end
