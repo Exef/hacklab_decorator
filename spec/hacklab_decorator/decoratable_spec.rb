@@ -7,6 +7,10 @@ describe HacklabDecorator::Decoratable do
     it 'default' do
       expect(subject.decorate).to be_a(ProjectDecorator)
     end
+
+    it 'with option' do
+      expect(subject.decorate(with: MyProjectDecorator)).to be_a(MyProjectDecorator)
+    end
   end
 
 end
