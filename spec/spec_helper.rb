@@ -28,3 +28,7 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 end
+
+def protect_class(klass)
+  before { stub_const klass.name, Class.new(klass) }
+end

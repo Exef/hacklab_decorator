@@ -5,3 +5,6 @@ end
 class MyProjectDecorator
 
 end
+
+class ProductDecorator
+end
