@@ -2,7 +2,7 @@ module HacklabDecorator
 
   class Railtie < Rails::Railtie
     config.after_initialize do |app|
-      app.config.add 'app/decorators', eager_load: true
+      app.config.paths.add 'app/decorators', eager_load: true
     end
 
     initializer "hacklab_decorator.setup_orm" do |app|
